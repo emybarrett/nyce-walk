@@ -4,8 +4,7 @@ import { createStackNavigator, createBottomTabNavigator } from 'react-navigation
 
 import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
-import LinksScreen from '../screens/LinksScreen';
-import SettingsScreen from '../screens/SettingsScreen';
+import TreeList from '../screens/TreeList';
 import MapScreen from '../screens/MapScreen'
 
 const HomeStack = createStackNavigator({
@@ -26,30 +25,16 @@ HomeStack.navigationOptions = {
   ),
 };
 
-const LinksStack = createStackNavigator({
-  Links: LinksScreen,
+const TreeListStack = createStackNavigator({
+  Trees: TreeList,
 });
 
-LinksStack.navigationOptions = {
-  tabBarLabel: 'Links',
+TreeListStack.navigationOptions = {
+  tabBarLabel: 'Trees',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
-      name={Platform.OS === 'ios' ? 'ios-link' : 'md-link'}
-    />
-  ),
-};
-
-const SettingsStack = createStackNavigator({
-  Settings: SettingsScreen,
-});
-
-SettingsStack.navigationOptions = {
-  tabBarLabel: 'Settings',
-  tabBarIcon: ({ focused }) => (
-    <TabBarIcon
-      focused={focused}
-      name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'}
+      name={Platform.OS === 'ios' ? 'ios-leaf' : 'md-leaf'}
     />
   ),
 };
@@ -70,7 +55,6 @@ MapStack.navigationOptions = {
 
 export default createBottomTabNavigator({
   HomeStack,
-  LinksStack,
-  SettingsStack,
+  TreeListStack,
   MapStack
 });
