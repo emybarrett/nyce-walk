@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {StyleSheet, Text, View} from 'react-native'
-import {MapView} from 'expo'
+import MapView, {PROVIDER_GOOGLE} from 'react-native-maps'
 
 export default class MapScreen extends Component {
   static navigationOptions = {
@@ -11,13 +11,16 @@ export default class MapScreen extends Component {
     return (
       <View style={styles.container}>
 
-        <MapView style={styles.map}
+        <MapView 
+          provider={PROVIDER_GOOGLE}
+          style={styles.map}
           region={{
             latitude: 40.705076,
             longitude: -74.009160,
             latitudeDelta: 0.1,
             longitudeDelta: 0.1
           }}
+          showsUserLocation={true}
           >
 
           <MapView.Marker
@@ -29,6 +32,7 @@ export default class MapScreen extends Component {
               }}
               title={'Fullstack'}
               decscription={'Starting Point'}
+              image={require('../assets/images/tree.png')}
           />
 
         </MapView>
